@@ -22,7 +22,6 @@ app.get("/api/v1/test", (req, res) => {
 })
 
 app.get("/", (req, res) => {
-    console.log(MAX_API_REQUEST);
     res.send(`
         <h1>FlixMenu<h1>
         <p>Revolutionizing restaurants menus and Automating restaurants workflow.</p>

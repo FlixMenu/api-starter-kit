@@ -1,6 +1,6 @@
 import dotenv from "dotenv"
 
-dotenv.config({ path: "../.env" })
+dotenv.config()
 
 
 export const ACCESS_SECRET = process.env.ACCESS_TOKEN_SECRET

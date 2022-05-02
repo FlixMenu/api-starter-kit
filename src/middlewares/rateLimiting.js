@@ -1,17 +1,16 @@
 
 import { rateLimit } from "express-rate-limit";
-import httpStatus from "http-status";
-import customRequestError from "../helpers/error";
+import { MAX_API_REQUEST } from "../config"
 
 
 export const customlimiter = rateLimit({
-    windowMs: 3000, // 15 minutes
-    max: 2, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
-    message: 'You have exceeded the 100 requests in 24 hrs limit!',
+    windowMs: 15 * 60 * 1000, // 15 min
+    max: MAX_API_REQUEST, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+    message: `You have exceeded the ${MAX_API_REQUEST} requests!`,
     standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
     legacyHeaders: false, // Disable the `X-RateLimit-*` headers
-    handler: (req, res, next) => {
-        customRequestError(res, httpStatus.TOO_MANY_REQUESTS, "You sent too many requests. Please wait a while then try again")
-        return next()
-    }
+    // handler: (req, res, next) => {
+    //     // charge customer fee based on number of requests
+    //     next()
+    // }
 })
