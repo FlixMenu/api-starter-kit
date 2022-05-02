@@ -4,12 +4,9 @@
 
 # ENV
 
-# production env
-.env.production
-
 # development env
-.env.development
-
+.env
+.env.production
 
 # prisma schema/migration
 
