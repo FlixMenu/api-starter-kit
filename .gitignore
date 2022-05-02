@@ -6,6 +6,7 @@
 
 # development env
 .env
+
 .env.production
 
 # prisma schema/migration
